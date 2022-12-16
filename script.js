@@ -50,7 +50,11 @@ let inc = 10,
 
 
 //Практическое задание 1
+
+
 // ПРИЛОЖЕНИЕ
+
+
 let money, time
 function start() {
     money = +prompt("Ваш бюджет на месяц", '')
@@ -60,7 +64,8 @@ function start() {
         money = +prompt("Ваш бюджет на месяц", '')
     }
 }
-start()
+
+
 
 let appData = {
     budget: money,
@@ -70,6 +75,8 @@ let appData = {
     income: [],
     savings: true
 }
+
+
 
 function chosseExpenses(){
     for (let i = 0; i < 1; i++) {
@@ -84,11 +91,14 @@ function chosseExpenses(){
         }
     }
 }
-function detectDayBudget(){
-appData.moneyPerDay = (appData.budget / 30).toFixed()
-alert('Ваш дневной бюджет ' + Math.round(appData.moneyPerDay));
+
+
+
+function detectDayBudget() {
+    appData.moneyPerDay = (appData.budget / 30).toFixed()
+    alert('Ваш дневной бюджет ' + Math.round(appData.moneyPerDay));
 }
-detectDayBudget()
+
 
 
 function detectLevel(){
@@ -102,13 +112,18 @@ function detectLevel(){
         console.log('Произошла ошибка');
     }
 }
-detectLevel()
-function chooseOptExpenses(){
+
+
+function chooseOptExpenses() {
+    for(let i = 1; i < 4; i++){
     let OptExpenses = prompt('Статья необязательных расходов?', ' ')
-       appData.optionalExpenses = ('1.' + ': ' + OptExpenses)
-       alert(appData.optionalExpenses)
+    appData.optionalExpenses[i] = ( i + ': ' + OptExpenses)
+    console.log(appData.optionalExpenses[i])
+    }
 }
 chooseOptExpenses()
+
+
 function checkSavings() {
     if (appData.savings == true) {
         let save = +prompt('Какова сумма накоплений', ' '),
