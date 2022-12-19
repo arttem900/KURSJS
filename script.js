@@ -279,3 +279,28 @@ function checkSavings() {
 // let $ = '12.2'
 // console.log(parseInt($) );// переводит строку в число
 // console.log(parseFloat($) );
+
+// callback функции
+
+// function time(){
+//     setTimeout(function(){
+//         console.log('Hello World')
+//     },1000)
+// }
+
+// function second(){
+//     console.log('Всем');
+// }
+// time()
+// second()
+
+function learnJs(lang, callback){
+    console.log('Я изучаю ' + lang)
+    callback()  
+}
+learnJs('JavaScript',done)
+
+function done(){
+    console.log('Я прошёл 3й урок');
+}
+
