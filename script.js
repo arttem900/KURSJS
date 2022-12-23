@@ -215,6 +215,9 @@ appData.choseIncome()
 //             console.log('&&&&');
 //             break;
 //     }
+
+console.log(2 && 1 && null && 0 && undefiend);// && всегда запинается на false
+console.log(null || 2 && 3 || 4);// || всегда запинается на true 3
     //Циклы, массивы
     // let array = [1,2,3,4,5]
     // array.forEach(function(item, i){
@@ -339,3 +342,30 @@ appData.choseIncome()
     
 //}
 //console.log(Object.keys(object).length);// длина объекта
+// CОБЫТИЯ
+  
+let btn = document.querySelectorAll('button'),
+    link = document.querySelector('a')
+
+// btn.onclick = function(){
+//     alert('HELLO WORLD')
+// }
+// btn.addEventListener('mouseenter', () => { // СОБЫТИЕ ПРИ НАВЕДЕНИИ
+// alert('HELLO WORLD')
+// })
+
+// btn[0].addEventListener('click', (event) => { // 
+//     console.log(event);
+//     let target = event.target
+//     target.style.backgroundColor = 'yellow' 
+//     // console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);// target объект на котором произошло событие
+//     })
+link.addEventListener('click', (event) => {
+    event.preventDefault()// закрывает переход по ссылке
+    console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target)
+})
+btn.forEach(function (item) { // события на весь псевдомассив
+    item.addEventListener('mouseleave', (event) => {
+        console.log(event.type);
+    })
+})
