@@ -354,12 +354,12 @@ let btn = document.querySelectorAll('button'),
 // alert('HELLO WORLD')
 // })
 
-// btn[0].addEventListener('click', (event) => { // 
-//     console.log(event);
-//     let target = event.target
-//     target.style.backgroundColor = 'yellow' 
-//     // console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);// target объект на котором произошло событие
-//     })
+btn[0].addEventListener('click', (event) => { // 
+    console.log(event);
+    let target = event.target
+    target.style.backgroundColor = 'yellow' 
+     console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);// target объект на котором произошло событие
+    })
 link.addEventListener('click', (event) => {
     event.preventDefault()// закрывает переход по ссылке
     console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target)
