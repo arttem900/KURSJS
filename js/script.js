@@ -55,86 +55,86 @@ let inc = 10,
 // ПРИЛОЖЕНИЕ
 
 
-let money, time
-function start() {
-    money = +prompt("Ваш бюджет на месяц", '')
-    time = prompt("Введите чисо в формате YYYY-MM-DD", '')
+// let money, time
+// function start() {
+//     money = +prompt("Ваш бюджет на месяц", '')
+//     time = prompt("Введите чисо в формате YYYY-MM-DD", '')
 
-    while (isNaN(money) || money == ' ' || money == null) { // isNaN не число
-        money = +prompt("Ваш бюджет на месяц", '')
-    }
-}
+//     while (isNaN(money) || money == ' ' || money == null) { // isNaN не число
+//         money = +prompt("Ваш бюджет на месяц", '')
+//     }
+// }
 
 
 
-let appData = {
-    budget: money,
-    timeData: time,
-    expenses: {},
-    optionalExpenses: {},
-    income: [],
-    savings: true,
-    chosseExpenses: function () {
-        for (let i = 0; i < 1; i++) {
-            let a = prompt('Введите обязательную статью расходов в этом месяце', ' '),
-                b = prompt('Во сколько обойдётся?', ' ')
-            if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null && a != ' ' && b != ' ' && a.length < 50) {
-                appData.expenses[a] = b
-                console.log(appData.expenses);
-            } else {
-                i--
-                console.log('Error');
-            }
-        }
-    },
-    detectDayBudget: function () {
-        appData.moneyPerDay = (appData.budget / 30).toFixed()
-        alert('Ваш дневной бюджет ' + Math.round(appData.moneyPerDay));
-    },
-    detectLevel: function () {
-        if (appData.moneyPerDay < 1000) {
-            console.log('Минимальный уровень дохода');
-        } else if (appData.moneyPerDay > 1000 && appData.moneyPerDay < 5000) {
-            console.log('Средний уровень дохода');
-        } else if (appData.moneyPerDay > 5000) {
-            console.log('Высокий уровень дохода');
-        } else {
-            console.log('Произошла ошибка');
-        }
-    },
-    chooseOptExpenses: function () {
-        for (let i = 1; i < 4; i++) {
-            let OptExpenses = prompt('Статья необязательных расходов?', ' ')
-            appData.optionalExpenses[i] = (i + ': ' + OptExpenses)
-            console.log(appData.optionalExpenses[i])
-        }
-    },
-    checkSavings: function () {
-        if (appData.savings == true) {
-            let save = +prompt('Какова сумма накоплений', ' '),
-                percent = prompt('Под какой процент', ' ')
-            appData.mothIncome = save / 100 / 12 * percent
-            console.log(Math.round(appData.mothIncome))
-        }
-    },
-    choseIncome: function () {
-        let items = prompt('Что принесёт дополнительный доход?', ' ')
-        if (typeof (items) != 'string' || typeof (items) == null || items == ' ') {
-            console.log("Вы ввели некорректные данные или не ввели их вовсе");
-        } else {
-            appData.income = items.split()
-            appData.income.push(prompt('Может что-то ещё?', ''))
-            appData.income.sort()
-        }
-        appData.income.forEach(function(item, i){
-            alert('Дополнительный доход  ' + [i+1] + '- ' + item)
-        })
-    }
-}
-for(let key in appData){
-    console.log(`Наша программа включает в себя ${key} : ${appData[key]}`);
-}
-appData.choseIncome()
+// let appData = {
+//     budget: money,
+//     timeData: time,
+//     expenses: {},
+//     optionalExpenses: {},
+//     income: [],
+//     savings: true,
+//     chosseExpenses: function () {
+//         for (let i = 0; i < 1; i++) {
+//             let a = prompt('Введите обязательную статью расходов в этом месяце', ' '),
+//                 b = prompt('Во сколько обойдётся?', ' ')
+//             if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null && a != ' ' && b != ' ' && a.length < 50) {
+//                 appData.expenses[a] = b
+//                 console.log(appData.expenses);
+//             } else {
+//                 i--
+//                 console.log('Error');
+//             }
+//         }
+//     },
+//     detectDayBudget: function () {
+//         appData.moneyPerDay = (appData.budget / 30).toFixed()
+//         alert('Ваш дневной бюджет ' + Math.round(appData.moneyPerDay));
+//     },
+//     detectLevel: function () {
+//         if (appData.moneyPerDay < 1000) {
+//             console.log('Минимальный уровень дохода');
+//         } else if (appData.moneyPerDay > 1000 && appData.moneyPerDay < 5000) {
+//             console.log('Средний уровень дохода');
+//         } else if (appData.moneyPerDay > 5000) {
+//             console.log('Высокий уровень дохода');
+//         } else {
+//             console.log('Произошла ошибка');
+//         }
+//     },
+//     chooseOptExpenses: function () {
+//         for (let i = 1; i < 4; i++) {
+//             let OptExpenses = prompt('Статья необязательных расходов?', ' ')
+//             appData.optionalExpenses[i] = (i + ': ' + OptExpenses)
+//             console.log(appData.optionalExpenses[i])
+//         }
+//     },
+//     checkSavings: function () {
+//         if (appData.savings == true) {
+//             let save = +prompt('Какова сумма накоплений', ' '),
+//                 percent = prompt('Под какой процент', ' ')
+//             appData.mothIncome = save / 100 / 12 * percent
+//             console.log(Math.round(appData.mothIncome))
+//         }
+//     },
+//     choseIncome: function () {
+//         let items = prompt('Что принесёт дополнительный доход?', ' ')
+//         if (typeof (items) != 'string' || typeof (items) == null || items == ' ') {
+//             console.log("Вы ввели некорректные данные или не ввели их вовсе");
+//         } else {
+//             appData.income = items.split()
+//             appData.income.push(prompt('Может что-то ещё?', ''))
+//             appData.income.sort()
+//         }
+//         appData.income.forEach(function(item, i){
+//             alert('Дополнительный доход  ' + [i+1] + '- ' + item)
+//         })
+//     }
+// }
+// for(let key in appData){
+//     console.log(`Наша программа включает в себя ${key} : ${appData[key]}`);
+// }
+// appData.choseIncome()
 
 // let i = 0
     
@@ -342,9 +342,11 @@ console.log(null || 2 && 3 || 4);// || всегда запинается на tr
     
 //}
 //console.log(Object.keys(object).length);// длина объекта
+
+
 // CОБЫТИЯ
   
-let btn = document.querySelectorAll('button'),
+let btn = document.querySelectorAll('button')[0],
     link = document.querySelector('a')
 
 // btn.onclick = function(){
@@ -354,18 +356,83 @@ let btn = document.querySelectorAll('button'),
 // alert('HELLO WORLD')
 // })
 
-btn[0].addEventListener('click', (event) => { // 
-    console.log(event);
-    let target = event.target
-    target.style.backgroundColor = 'yellow' 
-     console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);// target объект на котором произошло событие
+// btn[0].addEventListener('click', (event) => { // 
+//     console.log(event);
+//     let target = event.target
+//     target.style.backgroundColor = 'yellow' 
+//      console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);// target объект на котором произошло событие
+//     })
+// link.addEventListener('click', (event) => {
+//     event.preventDefault()// закрывает переход по ссылке
+//     console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target)
+// })
+// btn.forEach(function (item) { // события на весь псевдомассив
+//     item.addEventListener('mouseleave', (event) => {
+//         console.log(event.type);
+//     })
+// })
+
+
+//TOUCH
+
+window.addEventListener('DOMContentLoaded', () => {
+    btn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+
+        console.log(e.changedTouches);
+        console.log(e.target);
     })
-link.addEventListener('click', (event) => {
-    event.preventDefault()// закрывает переход по ссылке
-    console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target)
+
+//     btn.addEventListener('touchmove', () => {
+// console.log("i");
+//     })
+
+//     btn.addEventListener('touchend', () => {
+//         console.log("End");
+//             })
+
 })
-btn.forEach(function (item) { // события на весь псевдомассив
-    item.addEventListener('mouseleave', (event) => {
-        console.log(event.type);
+
+
+//setInterval, setTimeout
+
+
+
+// JESON
+
+// let options = {
+//     width: 1200,
+//     height: 100,
+//     background: 'red',
+//     font:{
+//         size: '16',
+//         color: 'white'
+//     }
+// }
+
+// let opt = JSON.stringify(options) //формат для отпраки на сервер
+// let pars = JSON.parse(opt)
+// console.log(opt);
+// console.log(pars);
+
+
+let inputRub = document.getElementById('rub'),
+    inputUsd = document.getElementById('usd')
+
+    inputRub.addEventListener('input', () => {
+        let request = new XMLHttpRequest()
+        request.open('GET', 'js/1.json') //GET получить данные с сервера, путь к серверу
+        // request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+        request.send()
+
+        request.addEventListener('load', function (){
+            if(request.readyState === 4 && request.status == 200){
+                let date = JSON.parse(request.response) // respons oтвет от сервера
+               
+                inputUsd.value = inputRub.value / date.USD
+            }else{
+                inputUsd.value = 'Error'
+            }
+        })
     })
-})
+    
