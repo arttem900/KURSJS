@@ -398,6 +398,37 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+//  ШИРИНА ВЫСОТА ОКНА
+
+let content = document.querySelector('.content'),
+    btn3 = document.querySelector('.btn')
+console.log(btn3);
+let width = content.clientWidth,
+    height = content.clientHeight
+
+    let width1 = content.offsetWidth,
+        height1 = content.offsetHeight
+
+    let scrollHeght = content.scrollHeight
+
+btn3.addEventListener('click', () => {
+    if(content.scrollTop >= 200){
+        content.scrollTop = 0
+        console.log(content.scrollTop);
+    }
+    // content.style.height = `${scrollHeght}px`
+   
+})
+    console.log(content.getBoundingClientRect());// координаты элемента
+    console.log(content.getBoundingClientRect().left);// координаты элемента
+    console.log(document.documentElement.clientWidth);//размеры документа
+    console.log(document.documentElement.clientHeight);
+    
+
+
+
+
+
 // JESON
 
 // let options = {
